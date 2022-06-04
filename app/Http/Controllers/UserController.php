@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Models\User;
 
 class UserController extends Controller
 {
@@ -66,4 +67,10 @@ class UserController extends Controller
     {
         $user->delete();
     }
+
+    public function attachQuality(User $user, Request $request)
+    {
+        return $user->qualities()->attach(($request->quality_id));
+    }
 }
+

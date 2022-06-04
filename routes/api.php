@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('users', UserController::class);
 Route::apiResource('qualities', QualityController::class);
+Route::post('/users/{user}/quality', [UserController::class, 'attachQuality']);
